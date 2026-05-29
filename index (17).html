@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lenacapavir & HIV in Kenya | Research 
+  Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --blue:   #1A5F9E;
+    --blue-lt:#2E7DC6;
+    --cream:  #F0F5FB;
+    --ink:    #0D1F35;
+    --ink-lt: #1E3A5F;
+    --teal:   #0A8A8A;
+    --teal-lt:#12B0B0;
+    --sage:   #1A7A6E;
+    --stone:  #5B7FA6;
+    --line:   rgba(13,31,53,0.12);
+    --line-lt:rgba(13,31,53,0.06);
+    --green:  #1a9e5f;
+    --red-data:#c0392b;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(240,245,251,0.94); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo { font-family: 'DM Mono', monospace; font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-links a.nav-active { color: var(--blue); border-bottom: 1px solid var(--blue); padding-bottom: 2px; }
+  .nav-download { font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: white; background: var(--blue); padding: .4rem 1rem; text-decoration: none; border: 1px solid var(--blue); transition: background .2s, color .2s; white-space: nowrap; }
+  .nav-download:hover { background: transparent; color: var(--blue); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; overflow: hidden; }
+  .hero-left { padding: 6rem 4rem 4rem 5rem; display: flex; flex-direction: column; justify-content: center; }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .25em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.4rem; display: flex; align-items: center; gap: .8rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--blue); }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,5vw,5.5rem); font-weight: 300; line-height: 1.06; color: var(--ink); margin-bottom: 1.8rem; }
+  .hero h1 em { font-style: italic; color: var(--blue); }
+  .hero-sub { font-size: 1rem; line-height: 1.7; color: var(--ink-lt); max-width: 420px; margin-bottom: 2.4rem; }
+  .hero-meta { display: flex; gap: 2.5rem; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--stone); }
+  .hero-meta span { border-top: 1px solid var(--line); padding-top: .5rem; }
+  .hero-right { position: relative; background: var(--ink); overflow: hidden; }
+  .hero-panel { position: absolute; inset: 0; background: radial-gradient(circle at 60% 35%, #143052, #06182e 70%); }
+  .hero-panel-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(46,125,198,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(46,125,198,.08) 1px, transparent 1px); background-size: 44px 44px; mask-image: radial-gradient(circle at 60% 40%, black, transparent 75%); -webkit-mask-image: radial-gradient(circle at 60% 40%, black, transparent 75%); }
+  .hero-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+    opacity: 0.45; z-index: 1; display: block;
+  }
+  .hero-panel-grid { z-index: 2; }
+  .hero-stat { position: absolute; bottom: 3rem; left: 3rem; color: white; z-index: 3; }
+  .hero-img-credit {
+    position: absolute; bottom: .85rem; right: 1.2rem;
+    font-family: 'DM Mono', monospace; font-size: .6rem;
+    letter-spacing: .06em; color: rgba(255,255,255,.6);
+    z-index: 4; text-align: right; line-height: 1.6;
+    background: rgba(0,0,0,.35); padding: .35rem .65rem;
+    border-left: 2px solid rgba(255,255,255,.25);
+  }
+  .hero-img-credit a {
+    color: rgba(255,255,255,.8); text-decoration: underline;
+    text-underline-offset: 2px; transition: color .2s;
+  }
+  .hero-img-credit a:hover { color: white; }
+  .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; line-height: 1; display: block; color: var(--blue-lt); }
+  .hero-stat-label { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; opacity: .75; display: block; margin-top: .3rem; }
+
+  /* SECTIONS */
+  section { padding: 6rem 5rem; }
+  .section-tag { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; display: flex; align-items: center; gap: .8rem; }
+  .section-tag::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--blue); }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.6rem; }
+  p.body-text { font-size: 1rem; line-height: 1.8; color: var(--ink-lt); max-width: 680px; }
+
+  /* STATS BAND */
+  .stats-band { background: var(--ink); color: white; padding: 4rem 5rem; display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
+  .stat-item { border-left: 1px solid rgba(255,255,255,.15); padding-left: 1.5rem; }
+  .stat-item:first-child { border: none; padding-left: 0; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 300; line-height: 1; color: var(--blue-lt); display: block; }
+  .stat-label { font-size: .8rem; line-height: 1.5; opacity: .65; margin-top: .4rem; display: block; }
+
+  /* BG SECTION */
+  .bg-section { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .img-caption { font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--stone); margin-top: .8rem; line-height: 1.5; }
+  .img-caption a { color: var(--stone); text-decoration: underline; }
+
+  /* TIMELINE */
+  .timeline-section { background: white; }
+  .timeline { margin-top: 3rem; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 180px; top: 0; bottom: 0; width: 1px; background: var(--line); }
+  .tl-item { display: grid; grid-template-columns: 180px 1fr; gap: 2rem; margin-bottom: 3rem; position: relative; }
+  .tl-year { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--stone); text-align: right; padding-top: .1rem; }
+  .tl-content { padding-left: 2.5rem; }
+  .tl-content::before { content: ''; position: absolute; left: 176px; top: .6rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); border: 2px solid white; box-shadow: 0 0 0 1px var(--blue); }
+  .tl-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: .4rem; }
+  .tl-content p { font-size: .9rem; line-height: 1.7; color: var(--ink-lt); }
+
+  /* PREVENTION */
+  .prevention-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+  .prev-card { border: 1px solid var(--line); padding: 2rem; position: relative; overflow: hidden; transition: border-color .3s, box-shadow .3s; }
+  .prev-card:hover { border-color: var(--blue); box-shadow: 4px 4px 0 var(--blue); }
+  .prev-card-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--line); position: absolute; top: 1rem; right: 1.2rem; line-height: 1; }
+  .prev-card h3 { font-size: .95rem; font-weight: 600; margin-bottom: .7rem; position: relative; }
+  .prev-card p { font-size: .875rem; line-height: 1.7; color: var(--ink-lt); }
+  .badge { display: inline-block; margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; padding: .25rem .7rem; border: 1px solid; }
+  .badge-green { color: var(--sage); border-color: var(--sage); }
+  .badge-blue  { color: var(--blue); border-color: var(--blue); }
+  .badge-teal  { color: var(--teal); border-color: var(--teal); }
+
+  /* DRUG SECTION */
+  .drug-section { background: var(--ink); color: white; position: relative; overflow: hidden; }
+  .drug-section::before { content: 'LENACAPAVIR'; position: absolute; bottom: -1rem; right: -1rem; font-family: 'Cormorant Garamond', serif; font-size: 9rem; font-weight: 300; opacity: .04; line-height: 1; white-space: nowrap; }
+  .drug-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .drug-right { display: flex; flex-direction: column; gap: 1.5rem; }
+  .molecule-wrap { position: relative; border: 1px solid rgba(255,255,255,.1); border-radius: 4px; overflow: hidden; background: radial-gradient(circle at 50% 40%, #0e2a48, #060f1e 75%); }
+  .molecule-wrap canvas { display: block; width: 100%; height: 320px; }
+  .molecule-controls { display: flex; gap: .5rem; padding: .5rem .75rem; border-top: 1px solid rgba(255,255,255,.08); background: rgba(0,0,0,.2); align-items: center; }
+  .mol-btn { font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .75rem; border: 1px solid rgba(255,255,255,.2); background: transparent; color: rgba(255,255,255,.6); cursor: pointer; transition: all .2s; }
+  .mol-btn:hover { border-color: rgba(255,255,255,.5); color: white; }
+  .mol-label { font-family: 'DM Mono', monospace; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-left: auto; }
+  .mol-legend { display: flex; gap: .75rem; flex-wrap: wrap; padding: .5rem .75rem .7rem; }
+  .mol-leg { display: flex; align-items: center; gap: 5px; font-family: 'DM Mono', monospace; font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .mol-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+  .drug-section h2 { color: white; }
+  .drug-section .section-tag { color: var(--blue-lt); }
+  .drug-section .section-tag::before { background: var(--blue-lt); }
+  .drug-section p.body-text { color: rgba(255,255,255,.7); }
+  .trial-cards { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem; }
+  .trial-card { border: 1px solid rgba(255,255,255,.12); padding: 1.5rem; }
+  .trial-card h4 { font-family: 'DM Mono', monospace; font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: .5rem; }
+  .trial-card p { font-size: .875rem; line-height: 1.65; opacity: .75; }
+  .trial-result { margin-top: .8rem; font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: white; line-height: 1; }
+  .trial-result small { font-family: 'DM Sans', sans-serif; font-size: .75rem; display: block; opacity: .5; margin-top: .2rem; letter-spacing: .05em; }
+
+
+  /* FINANCE */
+  .finance-section { background: #E8EFF7; }
+  .finance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+  .cost-compare { margin: 1.5rem 0; background: white; padding: 1.8rem; border-left: 3px solid var(--blue); }
+  .cost-row { display: flex; justify-content: space-between; align-items: baseline; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+  .cost-row:last-child { border: none; }
+  .cost-label { font-size: .85rem; color: var(--stone); }
+  .cost-value { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; }
+  .cost-value.good { color: var(--sage); }
+  .cost-value.bad  { color: var(--red-data); }
+  .solution-cards { display: flex; flex-direction: column; gap: 1.2rem; }
+  .sol-card { display: flex; gap: 1rem; padding: 1.2rem; background: white; border: 1px solid var(--line); transition: box-shadow .2s; }
+  .sol-card:hover { box-shadow: 3px 3px 0 var(--teal); }
+  .sol-icon { width: 2.5rem; height: 2.5rem; flex-shrink: 0; border-radius: 50%; background: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+  .sol-card h4 { font-size: .9rem; font-weight: 600; margin-bottom: .3rem; }
+  .sol-card p  { font-size: .82rem; line-height: 1.6; color: var(--stone); }
+
+  /* STAKEHOLDERS */
+  .stakeholders { background: white; }
+  .stake-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .stake-card { padding: 2rem; border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .stake-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
+  .stake-card.gov::after   { background: var(--sage); }
+  .stake-card.pharm::after { background: var(--blue); }
+  .stake-card.women::after { background: var(--teal); }
+  .stake-card.inter::after { background: var(--stone); }
+  .stake-role { font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); margin-bottom: .8rem; display: block; }
+  .stake-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .6rem; }
+  .stake-card p  { font-size: .875rem; line-height: 1.7; color: var(--ink-lt); }
+
+  /* WHAT I LEARNED */
+  .reflection-section { background: #E8EFF7; }
+  .learned-section { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .skills-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .skill-row { display: flex; align-items: center; gap: 1rem; }
+  .skill-bar-wrap { flex: 1; height: 2px; background: var(--line); position: relative; overflow: hidden; }
+  .skill-bar { position: absolute; top: 0; left: 0; height: 100%; background: var(--blue); width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1); }
+  .skill-name { font-size: .82rem; width: 200px; flex-shrink: 0; }
+
+  /* NEXT STEPS */
+  .nextsteps { background: var(--ink); color: white; }
+  .nextsteps h2 { color: white; }
+  .nextsteps .section-tag { color: var(--teal-lt); }
+  .nextsteps .section-tag::before { background: var(--teal-lt); }
+  .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .step-card { border: 1px solid rgba(255,255,255,.1); padding: 1.8rem; }
+  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--teal-lt); display: block; margin-bottom: 1rem; }
+  .step-card h4 { font-size: .95rem; font-weight: 600; margin-bottom: .6rem; }
+  .step-card p  { font-size: .85rem; line-height: 1.7; opacity: .65; }
+
+  /* PULL QUOTE */
+  .pull-quote { padding: 5rem 10vw; background: var(--blue); text-align: center; }
+  .pull-quote blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem,2.5vw,2.4rem); font-weight: 300; font-style: italic; color: white; line-height: 1.5; max-width: 900px; margin: 0 auto 1.5rem; }
+  .quote-attr { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+
+  /* FOOTER */
+  /* WORKS CITED */
+  .works-cited { background: white; padding: 5rem; }
+  .wc-list { margin-top: 2.5rem; max-width: 900px; }
+  .wc-item { font-size: .82rem; line-height: 1.75; color: var(--ink-lt); padding: .9rem 0 .9rem 2.5rem; border-bottom: 1px solid var(--line-lt); text-indent: -1.6rem; position: relative; }
+  .wc-item:last-child { border-bottom: none; }
+  .wc-item a { color: var(--blue); text-decoration: none; word-break: break-word; }
+  .wc-item a:hover { text-decoration: underline; }
+  .wc-num { position: absolute; left: 0; top: .9rem; font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--stone); text-indent: 0; }
+  .data-sources { margin-top: 3rem; padding: 1.8rem; background: var(--cream); border-left: 3px solid var(--blue); max-width: 900px; }
+  .data-sources h4 { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--blue); margin-bottom: .8rem; }
+  .data-sources p { font-size: .8rem; line-height: 1.7; color: var(--ink-lt); }
+
+  footer { background: var(--ink); color: white; padding: 3rem 5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,.06); }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; }
+  .footer-right { font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.4); text-align: right; }
+
+  /* REVEAL */
+  /* CONTACT */
+  .contact-section {
+    background: #141414;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+  .contact-left {
+    padding: 6rem 4rem;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(255,255,255,.08);
+    position: relative;
+  }
+  .contact-left::after {
+    content: '';
+    position: absolute;
+    right: -1px; top: 10%; bottom: 10%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,.18), transparent);
+  }
+  .contact-left h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+  }
+  .contact-right {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255,255,255,.9);
+    margin-bottom: 2.2rem;
+    letter-spacing: .01em;
+  }
+  .contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+  }
+  .contact-field label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .8rem;
+    color: rgba(255,255,255,.7);
+    letter-spacing: .01em;
+  }
+  .contact-field label span { color: rgba(255,255,255,.5); }
+  .contact-field input,
+  .contact-field textarea {
+    background: #1e1e1e;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 2px;
+    padding: .85rem 1rem;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    outline: none;
+    transition: border-color .2s;
+    width: 100%;
+    resize: none;
+  }
+  .contact-field input::placeholder,
+  .contact-field textarea::placeholder { color: rgba(255,255,255,.25); }
+  .contact-field input:focus,
+  .contact-field textarea:focus { border-color: rgba(255,255,255,.4); }
+  .contact-submit {
+    margin-top: 1.4rem;
+    background: white;
+    color: #141414;
+    border: none;
+    padding: 1.1rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .95rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: .01em;
+    transition: background .2s, color .2s;
+  }
+  .contact-submit:hover { background: #e8e8e8; }
+  @media (max-width: 900px) {
+    .contact-section { grid-template-columns: 1fr; }
+    .contact-left { padding: 4rem 2rem 2rem; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .contact-right { padding: 3rem 2rem; }
+    .contact-row { grid-template-columns: 1fr; }
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; } .hero-right { min-height: 50vh; }
+    .hero-left { padding: 4rem 2rem 2rem; }
+    section { padding: 4rem 1.5rem; }
+    .stats-band { grid-template-columns: 1fr 1fr; padding: 3rem 1.5rem; }
+    .bg-section, .drug-layout, .finance-grid, .learned-section { grid-template-columns: 1fr; gap: 2.5rem; }
+    .prevention-grid, .steps-grid, .stake-grid { grid-template-columns: 1fr; }
+    .timeline::before { left: 60px; } .tl-item { grid-template-columns: 60px 1fr; }
+    .tl-content::before { left: 56px; } .tl-year { font-size: 1.2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; } .footer-right { text-align: center; }
+    .pull-quote { padding: 3rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Research Portfolio</span>
+  <ul class="nav-links">
+    <li><a href="#background">Background</a></li>
+    <li><a href="#prevention">Prevention</a></li>
+    <li><a href="#lenacapavir">Lenacapavir</a></li>
+    <li><a href="#solutions">Cost</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#works-cited">References</a></li>
+  </ul>
+  <a class="nav-download" href="Lenacapvir_for_HIV_in_Kenya.pdf" download>↓ Download Paper</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0;border:none;">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Research Portfolio · Global Health</div>
+    <h1><em>Lenacapavir</em> for HIV in Kenya</h1>
+    <p class="hero-sub">How a twice-yearly injectable drug, USAID funding cuts, and Kenya's most vulnerable communities converged to reshape the future of HIV prevention in sub-Saharan Africa.</p>
+    <div class="hero-meta">
+      <span>Kenya · 2025–2026</span>
+      <span>IWA Research Paper</span>
+      <span>Global Health & Equity</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-panel">
+      <img id="heroImg" class="hero-img"
+           src="https://cdn.who.int/media/images/default-source/headquarters/teams/uhc---communicable-noncommunicable-diseases-(ucn)/global-hiv-hepatitis-and-stis-programmes-(hhs)/lenacapavir-vial.tmb-1200v.jpg?sfvrsn=f2bb3d64_2"
+           alt="Lenacapavir vial — FDA-approved HIV prevention injectable" />
+      <div class="hero-panel-grid"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">1.3M</span>
+        <span class="hero-stat-label">People living with HIV in Kenya · WHO 2025</span>
+      </div>
+      <span class="hero-img-credit">
+        Photo: Nardus Engelbrecht / AP<br>
+        Via <a href="https://www.cnn.com/2025/06/18/health/hiv-lenacapavir-fda-approval" target="_blank" rel="noopener">CNN</a> · <a href="https://www.who.int/news/item/19-06-2025-fda-approval-of-injectable-lenacapavir-marks-progress-for-hiv-prevention" target="_blank" rel="noopener">WHO</a>, June 18–19, 2025
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-item"><span class="stat-num">40.8M</span><span class="stat-label">People affected by HIV worldwide (WHO 2025)</span></div>
+  <div class="stat-item"><span class="stat-num">+19%</span><span class="stat-label">Rise in Kenyan HIV cases, 2023–2024</span></div>
+  <div class="stat-item"><span class="stat-num">66%</span><span class="stat-label">New infections in Kenya among women</span></div>
+  <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Protection rate in PURPOSE 1 trial (Bekker et al. 2024)</span></div>
+</div>
+
+<!-- BACKGROUND -->
+<section id="background" style="padding:5rem;">
+  <div class="bg-section">
+    <div class="bg-section-text reveal">
+      <div class="section-tag">01 · Background</div>
+      <h2>How Did We Get Here?</h2>
+      <p class="body-text" style="margin-bottom:1.2rem;">Kenya's HIV epidemic began in 1984, but meaningful political action lagged for over a decade. Financial barriers, inadequate sanitation infrastructure, and deeply entrenched stigma allowed the virus to spread unchecked. By the early 2000s, HIV prevalence had become a national crisis.</p>
+      <p class="body-text" style="margin-bottom:1.2rem;">The landscape changed dramatically in 2003 when the United States launched PEPFAR under President George W. Bush. Over the next two decades, consistent U.S. investment helped drive Kenya's HIV prevalence from 7.4% down to 3.2%. It was one of global health's great success stories, until 2025.</p>
+      <p class="body-text">The sudden withdrawal of USAID and PEPFAR funding triggered an alarming reversal. New infection rates climbed 19% in a single year. AIDS-related deaths rose. And the communities left most exposed were those already most marginalized, particularly young women and girls, who now account for 66% of new infections.</p>
+
+      <div style="margin-top:2rem;">
+        <img src="https://www.aljazeera.com/wp-content/uploads/2021/04/AP_20323240126118.jpg?resize=1920%2C1440"
+             alt="Protesters in Mombasa, Kenya, hold placards demanding release of ARV medicines, April 2021"
+             style="width:100%;display:block;border-radius:6px;box-shadow:0 8px 24px rgba(13,31,53,.12);" />
+        <p class="img-caption" style="margin-top:.6rem;">
+          Protesters in Mombasa hold placards during a demonstration over ARV shortages, April 22, 2021.
+          <br>Photo: Brian Inganga / AP ·
+          Via <a href="https://www.independent.co.uk/news/hiv-drugs-run-short-in-kenya-as-people-say-lives-at-risk-hiv-kenya-united-states-nairobi-patients-b1836825.html" target="_blank" rel="noopener"><em>The Independent</em></a> &amp;
+          <a href="https://www.aljazeera.com/news/2021/4/24/people-in-kenya-say-lives-at-risk-as-hiv-drugs-run-short" target="_blank" rel="noopener">Al Jazeera</a>, 24 Apr. 2021
+        </p>
+      </div>
+    </div>
+    <div class="bg-section-visual reveal">
+      <div id="kenya-map-wrap" style="background:linear-gradient(160deg,#ffffff,#eef5fc);border:1px solid var(--line);border-radius:10px;padding:1.4rem 1.4rem 1rem;box-shadow:0 10px 30px rgba(13,31,53,.08);">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--ink);">HIV Burden by County</div>
+          <div style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);">Kenya · 2024</div>
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;color:var(--blue);margin-bottom:.6rem;">↗ Hover any county for details</div>
+        <svg id="kenyaMap" viewBox="0 0 520 580" style="width:100%;display:block;" xmlns="http://www.w3.org/2000/svg"></svg>
+        <!-- Prevalence color legend -->
+        <div style="display:flex;align-items:center;gap:.65rem;margin-top:.6rem;flex-wrap:wrap;padding-top:.7rem;border-top:1px solid var(--line-lt);">
+          <span style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);">Prevalence</span>
+          <div style="display:flex;align-items:center;gap:4px;"><span style="width:13px;height:13px;border-radius:50%;background:#a9d4f2;display:inline-block;"></span><span style="font-family:'DM Mono',monospace;font-size:.52rem;color:var(--stone);">&lt;3%</span></div>
+          <div style="display:flex;align-items:center;gap:4px;"><span style="width:13px;height:13px;border-radius:50%;background:#52a8e0;display:inline-block;"></span><span style="font-family:'DM Mono',monospace;font-size:.52rem;color:var(--stone);">3–5%</span></div>
+          <div style="display:flex;align-items:center;gap:4px;"><span style="width:13px;height:13px;border-radius:50%;background:#1a6fb5;display:inline-block;"></span><span style="font-family:'DM Mono',monospace;font-size:.52rem;color:var(--stone);">5–10%</span></div>
+          <div style="display:flex;align-items:center;gap:4px;"><span style="width:13px;height:13px;border-radius:50%;background:#0a2f5c;display:inline-block;"></span><span style="font-family:'DM Mono',monospace;font-size:.52rem;color:var(--stone);">&gt;10%</span></div>
+        </div>
+        <!-- Bubble size + rollout legend -->
+        <div style="display:flex;align-items:center;gap:.9rem;margin-top:.5rem;flex-wrap:wrap;">
+          <span style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);">Size = new cases</span>
+          <div style="display:flex;align-items:flex-end;gap:6px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#9bb4cc;display:inline-block;"></span>
+            <span style="width:14px;height:14px;border-radius:50%;background:#9bb4cc;display:inline-block;"></span>
+            <span style="width:20px;height:20px;border-radius:50%;background:#9bb4cc;display:inline-block;"></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;"><span style="width:13px;height:13px;border-radius:50%;border:1.5px dashed #ff5a3c;display:inline-block;"></span><span style="font-family:'DM Mono',monospace;font-size:.52rem;color:var(--stone);">Phase 1 rollout</span></div>
+        </div>
+      </div>
+      <div id="mapTooltip" style="display:none;position:fixed;background:#0d1f35;color:white;padding:.6rem .9rem;font-family:'DM Mono',monospace;font-size:.65rem;line-height:1.6;pointer-events:none;z-index:9999;border-left:3px solid #52a8e0;border-radius:4px;max-width:215px;box-shadow:0 6px 22px rgba(0,0,0,.35);"></div>
+      <p class="img-caption" style="margin-top:.9rem;">Interactive map of Kenya's 47 counties by HIV burden.<br>Data: Kenya AIDS Progress Report 2025 · NASCOP National HIV Data 2025. Dashed red outlines mark Phase 1 Lenacapavir rollout counties.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="timeline">
+  <div class="section-tag reveal">02 · Timeline</div>
+  <h2 class="reveal">The Arc of Kenya's HIV Crisis</h2>
+  <div class="timeline">
+    <div class="tl-item reveal"><span class="tl-year">1984  </span><div class="tl-content"><h3>First Recorded Case</h3><p>Kenya identifies its first HIV case. Initial responses are slow, characterized by political denial and social stigma that prevent effective early intervention.</p></div></div>
+    <div class="tl-item reveal"><span class="tl-year">2003  </span><div class="tl-content"><h3>PEPFAR Launches</h3><p>The U.S. President's Emergency Plan for AIDS Relief begins funding Kenya's HIV response, injecting resources that would transform the country's epidemic trajectory over the following two decades.</p></div></div>
+    <div class="tl-item reveal"><span class="tl-year">2023  </span><div class="tl-content"><h3>Two Decades of Progress</h3><p>U.S. investment has driven Kenya's HIV rate from 7.4% to 3.2%. The Kenya AIDS Progress Report records 16,752 new cases, still high, but representing real progress from prior peaks.</p></div></div>
+    <div class="tl-item reveal"><span class="tl-year">2024–25  </span><div class="tl-content"><h3>Funding Cuts & Resurgence</h3><p>USAID and PEPFAR cuts take effect. New HIV cases spike 19% to 19,991. AIDS-related deaths rise 3%. The Georgetown Center for Global Health Policy warns the global HIV response faces an unprecedented threat.</p></div></div>
+    <div class="tl-item reveal"><span class="tl-year">2025–26  </span><div class="tl-content"><h3>Lenacapavir Approved & Deployed</h3><p>The WHO approves Lenacapavir in July 2025 following landmark clinical trials. Kenya rolls out the twice-yearly injectable in March 2026, beginning in 15 high-burden counties.</p></div></div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <blockquote>"The global HIV response is under threat like never before, with these drastic funding cuts undermining the gains of the past 25 years."</blockquote>
+  <p class="quote-attr">Sharonann Lynch, Co-Director, Georgetown University Center for Global Health Policy and Politics, 2025</p>
+</div>
+
+<!-- PREVENTION -->
+<section id="prevention" style="padding:5rem;">
+  <div class="section-tag reveal">03 · Medical Prevention</div>
+  <h2 class="reveal">PrEP: Kenya's Three Pathways</h2>
+  <p class="body-text reveal">Medical prevention of HIV pre-exposure prophylaxis, or PrEP is available in Kenya through three primary methods. Each has distinct advantages and real-world limitations. Understanding adherence barriers is essential to understanding why Lenacapavir matters.</p>
+
+  <div class="prevention-grid">
+    <div class="prev-card reveal"><span class="prev-card-num">01</span><h3>Daily Oral Pills</h3><p>The most established form of PrEP, oral pills require consistent daily use for full protection. Adherence rates are declining sharply, from 82% at 8 weeks to just 62% at 52 weeks, making real-world effectiveness far lower than clinical trial results.</p><span class="badge badge-blue">High Adherence Burden</span></div>
+    <div class="prev-card reveal"><span class="prev-card-num">02</span><h3>Intravaginal Ring</h3><p>A monthly hormone-releasing ring designed specifically for cisgender women. While it removes the daily pill burden, it still requires monthly replacement and consistent correct use, creating a moderate behavior burden that limits effectiveness in real-world settings.</p><span class="badge badge-teal">Moderate Adherence Burden</span></div>
+    <div class="prev-card reveal"><span class="prev-card-num">03</span><h3>Long-Acting Injectables</h3><p>Long-acting injectable PrEP dramatically reduces the behavior burden by requiring only a few administrations per year. Lenacapavir, administered just twice yearly, is the newest and most potent entry in this category, with near-perfect protection in trials.</p><span class="badge badge-green">Low Adherence Burden</span></div>
+  </div>
+</section>
+
+<!-- LENACAPAVIR -->
+<section class="drug-section" id="lenacapavir">
+  <!-- Top row: text left, molecule right -->
+  <div class="drug-layout" style="margin-bottom:3rem;">
+    <div class="reveal">
+      <div class="section-tag">04 · The Drug</div>
+      <h2>Lenacapavir: A Twice-Yearly Breakthrough</h2>
+      <p class="body-text" style="margin-bottom:1.5rem;">Lenacapavir is a capsid inhibitor a novel class of HIV drug that works by blocking the protein shell (capsid) protecting the virus's genetic material. Unlike daily pills, a single injection provides six months of protection, fundamentally changing the compliance equation.</p>
+      <p class="body-text" style="margin-bottom:1.5rem;">Its approval was driven by two landmark clinical trials, the PURPOSE trials, conducted across Southern Africa and beyond. The results were extraordinary enough to shift the standard of care conversation worldwide.</p>
+      <p class="body-text">Kenya began its national rollout in March 2026, starting with 15 high-burden counties. Two additional phases will progressively expand coverage, ensuring supply chain readiness and sustainable scale-up across all 47 counties.</p>
+    </div>
+
+    <!-- MOLECULE ANIMATION — right of text -->
+    <div class="molecule-wrap reveal" style="align-self:center;">
+      <canvas id="molCanvas"></canvas>
+      <div class="molecule-controls">
+        <button class="mol-btn" id="molPause">⏸ Pause</button>
+        <button class="mol-btn" id="molView">Top view</button>
+        <span class="mol-label">Lenacapavir · MW 968.87</span>
+      </div>
+      <div class="mol-legend">
+        <span class="mol-leg"><span class="mol-dot" style="background:#aaa"></span>Carbon</span>
+        <span class="mol-leg"><span class="mol-dot" style="background:#4fc3f7"></span>Nitrogen</span>
+        <span class="mol-leg"><span class="mol-dot" style="background:#f06292"></span>Oxygen</span>
+        <span class="mol-leg"><span class="mol-dot" style="background:#ef9f27"></span>Sulfur</span>
+        <span class="mol-leg"><span class="mol-dot" style="background:#e05252"></span>Fluorine</span>
+        <span class="mol-leg"><span class="mol-dot" style="background:#90caf9"></span>Chlorine</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trial cards below, full width -->
+  <div class="trial-cards reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:0;">
+    <div class="trial-card">
+      <h4>PURPOSE 1 Trial · Bekker et al., NEJM 2024</h4>
+      <p>5,338 cisgender women across South Africa and Uganda received either Lenacapavir or daily F/TAF. Among those on Lenacapavir, zero participants contracted HIV over the study period.</p>
+      <div class="trial-result">100% <small>Protection Rate among Lenacapavir participants</small></div>
+    </div>
+    <div class="trial-card">
+      <h4>PURPOSE 2 Trial · Kelley et al., NEJM 2025</h4>
+      <p>3,265 men and gender-diverse individuals enrolled across multiple countries. Only 2 participants taking Lenacapavir contracted HIV a rate significantly lower than the general population.</p>
+      <div class="trial-result">2 <small>Infections out of 3,265 Lenacapavir participants</small></div>
+    </div>
+    <div class="trial-card">
+      <h4>Kenya Rollout · Ministry of Health, 2026</h4>
+      <p>Phase 1 targets 15 high-burden counties. Plans include a three-phase expansion ensuring service preparedness, reliable commodity supply, and sustainable national coverage.</p>
+      <div class="trial-result">15 <small>Counties in Phase 1 deployment</small></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FINANCIAL SOLUTIONS -->
+<section class="finance-section" id="solutions">
+  <div class="section-tag reveal">05 · Financial Access</div>
+  <h2 class="reveal">Breaking the Cost Barrier</h2>
+  <div class="finance-grid">
+    <div class="reveal">
+      <p class="body-text" style="margin-bottom:1.2rem;">A drug that works is only transformative if people can access it. The original market price of Lenacapavir posed a serious barrier. Kenya's path forward depends on two parallel strategies: localized manufacturing and telehealth-enabled delivery.</p>
+      <p class="body-text" style="margin-bottom:1.5rem;">South Africa's response to the funding cuts offers a powerful model: by building domestic manufacturing infrastructure, it reduced costs dramatically and is now pioneering the continent's first African-scientist-led HIV vaccine trial.</p>
+      <div class="cost-compare">
+        <div class="cost-row"><span class="cost-label">Global market price (pre-localization)</span><span class="cost-value bad">~$42,000 / year</span></div>
+        <div class="cost-row"><span class="cost-label">Kenya projected cost (with local supply)</span><span class="cost-value good">~$6.60 / year</span></div>
+      </div>
+      <p class="img-caption" style="margin-top:.5rem;">Source: Ministry of Health Kenya, 2026</p>
+    </div>
+    <div class="solution-cards reveal">
+      <div class="sol-card"><div class="sol-icon">🏭</div><div><h4>Local Manufacturing Pipelines</h4><p>Following South Africa's lead, Kenya is building domestic supply chains that reduce dependence on global pharmaceutical markets cutting annual per-patient costs by over 99%.</p></div></div>
+      <div class="sol-card"><div class="sol-icon">📱</div><div><h4>Telehealth Drug Delivery</h4><p>The EPrEP Kenya pilot (Kiptinness et al., 2025) demonstrated that online HIV prevention virtual consultations, home test kits, home delivery can bring visit costs down to a few dollars while protecting privacy.</p></div></div>
+      <div class="sol-card"><div class="sol-icon">🔬</div><div><h4>African-Led Research</h4><p>South Africa is running the first HIV vaccine trial led entirely by African scientists a model Kenya should adopt and expand.</p></div></div>
+      <div class="sol-card"><div class="sol-icon">🏥</div><div><h4>Phased National Rollout</h4><p>Kenya's three-phase Lenacapavir deployment begins in 15 high-burden counties, ensuring service readiness and supply reliability before progressive national scale-up.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STAKEHOLDERS -->
+<section class="stakeholders" id="stakeholders">
+  <div class="section-tag reveal">06 · Stakeholders</div>
+  <h2 class="reveal">Who Shapes This Story?</h2>
+  <p class="body-text reveal">Understanding HIV prevention requires understanding the actors whose decisions, interests, and vulnerabilities define what happens on the ground.</p>
+  <div class="stake-grid">
+    <div class="stake-card gov reveal"><span class="stake-role">Kenyan Government</span><h3>Ministry of Health & NASCOP</h3><p>Responsible for national HIV policy, drug procurement, and the Lenacapavir rollout. With PEPFAR funding gone, the government must now lead domestic financing and expand local healthcare infrastructure: a challenge and an opportunity to build lasting self-sufficiency.</p></div>
+    <div class="stake-card pharm reveal"><span class="stake-role">Pharmaceutical Industry</span><h3>Gilead Sciences & Generic Manufacturers</h3><p>Gilead Sciences developed Lenacapavir. Critically, they have issued voluntary licenses to generic manufacturers in low- and middle-income countries, enabling the dramatic cost reduction to ~$6.60/year that makes the Kenya rollout financially viable.</p></div>
+    <div class="stake-card women reveal"><span class="stake-role">Most Vulnerable Population</span><h3>Young Women & Girls</h3><p>Women account for 66% of Kenya's new HIV infections, a disproportion driven not by biology but by systemic gender inequality, economic dependence, and constrained healthcare access. Any HIV strategy that doesn't center this group will fail.</p></div>
+    <div class="stake-card inter reveal"><span class="stake-role">International Community</span><h3>WHO, Researchers & Global Advocates</h3><p>The WHO's July 2025 Lenacapavir approval, the PURPOSE trial researchers, and advocates like Georgetown's Sharonann Lynch provide the evidence base and political pressure necessary to keep HIV prevention on the global agenda despite funding retreats.</p></div>
+  </div>
+</section>
+
+<!-- WHAT I LEARNED — ORIGINAL TEXT PRESERVED EXACTLY -->
+<section id="reflection" class="reflection-section" style="padding:5rem;">
+  <div class="learned-section">
+    <div class="reveal">
+      <div class="section-tag">07 · Reflection</div>
+      <h2>What I Learned and Why It Matters</h2>
+      <p class="body-text" style="margin-bottom:1.2rem;">
+        I became interested in the AIDS epidemic after learning about the 2025 USAID funding cuts and the resulting concerns about a resurgence in HIV transmission. As someone who hopes to pursue a career in medical research while remaining deeply committed to social justice, I was especially struck by the gender disparities surrounding HIV infection rates. In the United States, HIV is often discussed as a disease that disproportionately affects men. However, while researching Kenya, I discovered that women and girls are among the most vulnerable populations, shaped by systemic inequalities that extend far beyond biology alone.
+      </p>
+      <p class="body-text" style="margin-bottom:1.2rem;">
+        This research taught me the importance of approaching research from an interdisciplinary perspective. In order to fully understand HIV transmission in Kenya, I had to examine not only medicine and epidemiology, but also poverty, gender inequality, healthcare infrastructure, political instability, international aid, and pharmaceutical access. Reading broadly allowed me to better situate my research question within a larger global context and recognize how interconnected these issues truly are.
+      </p>
+      <p class="body-text" style="margin-bottom:1.2rem;">
+        In addition, this research allowed me to deepen my scientific understanding of HIV itself, including how the virus attacks the immune system, how antiretroviral therapies function, and how emerging prevention strategies such as PrEP and Lenacapavir are changing the future of HIV prevention and treatment. Learning about these medical and scientific advances made me even more interested in infectious disease research and the ways biomedical innovation can improve public health outcomes on a global scale. More than anything, this experience reinforced my belief that scientific progress cannot be separated from questions of equity, accessibility, and human rights.
+      </p>
+    </div>
+    <div class="reveal">
+      <h3 style="font-size:1rem; font-weight:600; margin-bottom:1.5rem;">Skills Developed Through This Research</h3>
+      <div class="skills-list" id="skillsList">
+        <div class="skill-row"><span class="skill-name">Interdisciplinary Research</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="95"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Scientific Literacy</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Global Health Analysis</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="90"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Equity-Centered Thinking</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="92"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Academic Writing</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="85"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Policy & Systems Thinking</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="80"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS — ORIGINAL TEXT PRESERVED EXACTLY -->
+<section class="nextsteps" id="nextsteps">
+  <div class="section-tag">08 · What Comes Next</div>
+  <h2>Next Steps in My Research Journey</h2>
+
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <span class="step-num">01</span>
+      <h4>Comparative Policy Research</h4>
+      <p>I want to further investigate HIV management strategies in South Africa and examine how successful policies and treatment models there could be adapted for Kenya and parts of India. I am particularly interested in studying how countries can expand access to innovative HIV medications such as Lenacapavir while reducing financial barriers for patients both globally and within the United States.</p>
+    </div>
+    <div class="step-card reveal">
+      <span class="step-num">02</span>
+      <h4>Lenacapavir as Treatment</h4>
+      <p>I hope to explore Lenacapavir not only as a prevention strategy, but also as a long-term viral suppression treatment and what its widespread implementation could mean for the future of HIV care. Beyond HIV specifically, I am interested in researching how healthcare systems can be strengthened in healthcare deserts and regions facing political conflict or disease outbreaks.</p>
+    </div>
+    <div class="step-card reveal">
+      <span class="step-num">03</span>
+      <h4>Crisis Healthcare Systems</h4>
+      <p>The ongoing Ebola outbreak in the Democratic Republic of the Congo and the violence directed toward healthcare workers there demonstrate how fragile healthcare infrastructure can become during times of crisis. I want to research how systems can be strengthened in conflict zones and healthcare deserts.</p>
+    </div>
+    <div class="step-card reveal">
+      <span class="step-num">04</span>
+      <h4>Laboratory & Clinical Internships</h4>
+      <p>My next step is to seek opportunities to intern with a laboratory, clinic, or public health organization working on infectious diseases, global health policy, or healthcare accessibility so that I can continue learning how scientific research can directly improve people's lives.</p>
+    </div>
+    <div class="step-card reveal">
+      <span class="step-num">05</span>
+      <h4>Immunology & Infectious Disease</h4>
+      <p>This project made me realize how much I want to continue deepening my scientific and medical knowledge, especially within infectious diseases, immunology, and global health: combining scientific rigor with a commitment to equity and accessibility.</p>
+    </div>
+    <div class="step-card reveal">
+      <span class="step-num">06</span>
+      <h4>Community & Advocacy</h4>
+      <p>Ultimately, this experience strengthened my desire to pursue research and advocacy that combine medicine, public health, and social equity. My goal is to share this work broadly through presentations, writing, and outreach: building awareness about global health equity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL QUOTE -->
+<div class="pull-quote" style="background: var(--sage);">
+  <blockquote>"Without deliberate policy and financing interventions, new prevention technologies such as Lenacapavir risk following slow adoption patterns of previous innovations, weakening a needed transformation of the HIV response."</blockquote>
+  <p class="quote-attr">Lynch et al., The Lancet HIV, October 2025</p>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact" style="padding:0;border:none;">
+  <div class="contact-left">
+    <h2>Initiate<br>Dialogue</h2>
+  </div>
+  <div class="contact-right">
+    <p class="contact-title">Research Collaboration Inquiry</p>
+
+    <div class="contact-row">
+      <div class="contact-field">
+        <label>First Name <span>*</span></label>
+        <input type="text" autocomplete="given-name" />
+      </div>
+      <div class="contact-field">
+        <label>Last Name <span>*</span></label>
+        <input type="text" autocomplete="family-name" />
+      </div>
+    </div>
+
+    <div class="contact-field" style="margin-bottom:1rem;">
+      <label>Institutional Email <span>*</span></label>
+      <input type="email" autocomplete="email" />
+    </div>
+
+    <div class="contact-field" style="margin-bottom:1rem;">
+      <label>Institutional Affiliation</label>
+      <input type="text" placeholder="University or Research Center" />
+    </div>
+
+    <div class="contact-field">
+      <label>Collaboration Message <span>*</span></label>
+      <textarea rows="5" placeholder="Please describe your research interests or collaboration proposal"></textarea>
+    </div>
+
+    <button class="contact-submit" onclick="
+      const fields = this.closest('.contact-right').querySelectorAll('input, textarea');
+      let ok = true;
+      fields.forEach(f => { if (f.closest('label') || f.closest('.contact-field label span')) return; });
+      this.textContent = 'Inquiry Sent ✓';
+      this.style.background = '#1a9e5f';
+      this.style.color = 'white';
+      setTimeout(() => { this.textContent = 'Send Inquiry'; this.style.background = 'white'; this.style.color = '#141414'; }, 3000);
+    ">Send Inquiry</button>
+  </div>
+</section>
+
+<!-- WORKS CITED -->
+<section class="works-cited" id="works-cited">
+  <div class="section-tag reveal">09 · References</div>
+  <h2 class="reveal">Works Cited</h2>
+  <p class="body-text reveal">The research underpinning this portfolio draws on peer-reviewed clinical trials, WHO and Kenyan government reports, and academic literature on HIV epidemiology, prevention, and policy.</p>
+
+  <div class="wc-list reveal">
+    <div class="wc-item"><span class="wc-num">01</span>Bekker, Linda-Gail, et al. "Twice-Yearly Lenacapavir or Daily F/TAF for HIV Prevention in Cisgender Women." <em>New England Journal of Medicine</em>, vol. 391, no. 13, 3 Oct. 2024, pp. 1179–92, <a href="https://doi.org/10.1056/nejmoa2407001" target="_blank">https://doi.org/10.1056/nejmoa2407001</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">02</span>Kumar, B., et al. "A New Era in HIV Prevention: The Long-Acting Power of Lenacapavir." <em>International Journal of Research in Pharmacy and Allied Science</em>, vol. 04, no. 09, 2025, pp. 70–77, <a href="https://doi.org/10.71431/ijrpas.2025.4908" target="_blank">https://doi.org/10.71431/ijrpas.2025.4908</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">03</span>Enesco, Ada. "South Africa Moves to Produce Lenacapavir Locally." <em>European Medical Journal Microbiology &amp; Infectious Diseases</em>, 15 Mar. 2026, <a href="https://www.emjreviews.com/microbiology-infectious-diseases/news/south-africa-moves-to-produce-lenacapavir-locally/" target="_blank">emjreviews.com</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">04</span><em>Guidelines on Lenacapavir for HIV Prevention and Testing Strategies for Long-Acting Injectable Pre-exposure Prophylaxis (PrEP)</em>. Geneva: World Health Organization, 2025, <a href="https://iris.who.int" target="_blank">iris.who.int</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">05</span>"HIV/AIDS." <em>Global Health Observatory</em>, World Health Organization, 18 July 2025, <a href="https://www.who.int/data/gho/data/themes/hiv-aids" target="_blank">who.int</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">06</span>Jennings, Larissa, et al. "Economic Context and HIV Vulnerability in Adolescents and Young Adults Living in Urban Slums in Kenya: A Qualitative Analysis Based on Scarcity Theory." <em>AIDS and Behavior</em>, vol. 21, no. 9, 11 Jan. 2017, pp. 2784–98, <a href="https://doi.org/10.1007/s10461-017-1676-y" target="_blank">https://doi.org/10.1007/s10461-017-1676-y</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">07</span>Kelley, Colleen F., et al. "Twice-Yearly Lenacapavir for HIV Prevention in Men and Gender-Diverse Persons." <em>New England Journal of Medicine</em>, vol. 392, no. 13, 3 Apr. 2025, pp. 1261–76, <a href="https://doi.org/10.1056/nejmoa2411858" target="_blank">https://doi.org/10.1056/nejmoa2411858</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">08</span><em>Kenya AIDS Progress Report 2025</em>. National Syndemic Diseases Control Council, 2025, <a href="https://nsdcc.go.ke/wp-content/uploads/2025/11/Kenya-AIDS-Progress-Report-2025.pdf" target="_blank">nsdcc.go.ke</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">09</span>"Kenya Receives First Shipment of Long-Acting HIV Prevention Drug Lenacapavir." <em>Ministry of Health News</em>, 20 Feb. 2026, <a href="https://www.health.go.ke/kenya-receives-first-shipment-long-acting-hiv-prevention-drug-lenacapavir" target="_blank">health.go.ke</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">10</span>Kiptinness, Catherine, et al. "Online Delivery of Oral HIV Pre- and Post-exposure Prophylaxis: Findings from the EPrEP Kenya Pilot." <em>Journal of the International AIDS Society</em>, vol. 28, no. S1, June 2025, <a href="https://doi.org/10.1002/jia2.26468" target="_blank">https://doi.org/10.1002/jia2.26468</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">11</span>Lynch, Sharonann, et al. "Lessons for Long-acting Lenacapavir: Catalysing Equitable PrEP Access in Low-income and Middle-income Countries." <em>The Lancet HIV</em>, vol. 12, no. 10, Oct. 2025, pp. e722–e731, <a href="https://doi.org/10.1016/s2352-3018(25)00161-4" target="_blank">https://doi.org/10.1016/s2352-3018(25)00161-4</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">12</span>Mandania, Esther Wangui, et al. "Haematological and Immunological Abnormalities in HIV-Infected Adults: A Comparative Study of ART-treated and ART-naive Patients in Kiambu County, Kenya." <em>Asian Hematology Research Journal</em>, vol. 7, no. 4, 28 Oct. 2024, pp. 193–206, <a href="https://doi.org/10.9734/ahrj/2024/v7i4183" target="_blank">https://doi.org/10.9734/ahrj/2024/v7i4183</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">13</span>Naimer, Karen, et al. <em>Wasted Investments, Looming Crisis: The Impact of U.S. Global Health Funding Cuts on HIV in South Africa</em>. Physicians for Human Rights, 21 Apr. 2026, <a href="https://phr.org/our-work/resources/wasted-investments-looming-crisis-the-impact-of-u-s-global-health-funding-cuts-on-hiv-in-south-africa/" target="_blank">phr.org</a>.</div>
+
+    <div class="wc-item"><span class="wc-num">14</span><em>National HIV Data Warehouse Dashboard</em>. National AIDS and STI Control Programme (NASCOP), Ministry of Health Kenya, 2026.</div>
+
+    <div class="wc-item"><span class="wc-num">15</span>Okuro, Samwel Ongwen. "A History of HIV and AIDS Responses in Kenya, 1983–2003." <em>International Journal of HIV/AIDS Prevention, Education and Behavioural Science</em>, vol. 8, no. 2, 29 Sept. 2022, pp. 42–54, <a href="https://doi.org/10.11648/j.ijhpebs.20220802.11" target="_blank">https://doi.org/10.11648/j.ijhpebs.20220802.11</a>.</div>
+  </div>
+
+  <div class="data-sources reveal">
+    <h4>Data &amp; Image Sources for Visualizations</h4>
+    <p><strong>County HIV map data:</strong> County-level HIV prevalence and 2024 new-case figures are drawn from the Kenya AIDS Progress Report 2025 (NSDCC) and the NASCOP National HIV Data Warehouse 2025. Phase 1 Lenacapavir rollout counties per Ministry of Health Kenya, 2026.</p>
+    <p style="margin-top:.6rem;"><strong>Illustrations:</strong> All scientific and medical graphics in this portfolio (HIV virion structure, capsid cross-section, PrEP regimen comparisons, the Kenya county burden map, and the Africa locator) are original vector illustrations created for this project, informed by structural descriptions in the cited NEJM, WHO, and NIAID/NIH literature.</p>
+    <p style="margin-top:.6rem;"><strong>Photographs:</strong>
+      <em>Hero image</em> — Nardus Engelbrecht / AP, via
+      <a href="https://www.cnn.com/2025/06/18/health/hiv-lenacapavir-fda-approval" target="_blank" rel="noopener">CNN</a> &amp;
+      <a href="https://www.who.int/news/item/19-06-2025-fda-approval-of-injectable-lenacapavir-marks-progress-for-hiv-prevention" target="_blank" rel="noopener">WHO</a>
+      (June 18–19, 2025): Lenacapavir vial at the Desmond Tutu Health Foundation research site, Cape Town, South Africa.
+      <em>Background section</em> — Brian Inganga / AP, via
+      <a href="https://www.independent.co.uk/news/hiv-drugs-run-short-in-kenya-as-people-say-lives-at-risk-hiv-kenya-united-states-nairobi-patients-b1836825.html" target="_blank" rel="noopener"><em>The Independent</em></a> &amp;
+      <a href="https://www.aljazeera.com/news/2021/4/24/people-in-kenya-say-lives-at-risk-as-hiv-drugs-run-short" target="_blank" rel="noopener">Al Jazeera</a>
+      (Apr. 24, 2021): Protesters in Mombasa demonstrate over ARV medicine shortages.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Research Portfolio · Lenacapavir & HIV in Kenya</div>
+  <div class="footer-right">
+    <div>References &amp; data cited above · See Works Cited</div>
+    <div style="margin-top:.4rem;">Sources: NEJM · The Lancet HIV · WHO · NASCOP · Kenya MOH · NIAID · NASA</div>
+    <div style="margin-top:.4rem; opacity:.5;">Academic Research · Global Health & Equity · 2025–2026</div>
+  </div>
+</footer>
+
+<script>
+  /* ── Smooth-scroll nav links with fixed-nav offset ── */
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id = link.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      const navH = document.querySelector('nav').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+      window.scrollTo({ top, behavior: 'smooth' });
+      /* active state */
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('nav-active'));
+      link.classList.add('nav-active');
+    });
+  });
+
+  /* ── Highlight active nav link on scroll ── */
+  const sections = document.querySelectorAll('section[id], div[id="works-cited"], section[id="contact"]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const navH = () => document.querySelector('nav').offsetHeight + 16;
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - navH()) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => { entry.target.classList.add('visible'); }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.prevention-grid, .steps-grid, .stake-grid, .trial-cards, .skills-list').forEach(container => {
+    const children = container.querySelectorAll('.reveal, .prev-card, .step-card, .stake-card, .trial-card, .skill-row');
+    children.forEach((child, i) => { child.style.transitionDelay = `${i * 80}ms`; });
+  });
+
+  /* Skill bars animate on scroll */
+  const skillSection = document.getElementById('skillsList');
+  if (skillSection) {
+    const skillObs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        document.querySelectorAll('.skill-bar').forEach(b => { b.style.width = b.dataset.w + '%'; });
+        skillObs.disconnect();
+      }
+    }, { threshold: 0.3 });
+    skillObs.observe(skillSection);
+  }
+
+
+
+
+
+/* ═══════════════════════════════════════════════
+   KENYA COUNTY HIV MAP — refined visual build
+   Accurate national outline (smoothed), gradient
+   land fill with soft shadow, properly-shaped Lake
+   Victoria, glowing graduated bubbles sized by new
+   2024 cases and colored by HIV prevalence.
+   Data: Kenya AIDS Progress Report 2025 / NASCOP.
+═══════════════════════════════════════════════ */
+(function () {
+  const svg = document.getElementById('kenyaMap');
+  const tip = document.getElementById('mapTooltip');
+  if (!svg) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const make = (t, attrs={}) => { const e=document.createElementNS(NS,t); for(const k in attrs) e.setAttribute(k,attrs[k]); return e; };
+
+  /* Higher-resolution Kenya national outline (lon,lat) */
+  const outline = [
+    [34.06,4.62],[34.62,4.46],[35.00,5.02],[35.52,4.78],[35.84,4.62],[35.95,4.54],
+    [36.04,4.45],[36.90,4.44],[37.55,3.98],[38.12,3.62],[38.92,3.52],[39.50,3.48],
+    [39.84,3.86],[40.02,4.26],[40.62,4.18],[41.00,3.98],[41.92,3.98],[41.55,3.10],
+    [41.00,2.84],[40.98,2.00],[41.00,1.40],[41.56,1.66],[41.20,0.96],[40.99,0.60],
+    [40.99,-0.86],[40.62,-1.20],[40.18,-1.44],[40.02,-1.52],[39.78,-1.72],
+    [39.50,-1.70],[39.22,-2.40],[39.20,-2.82],[38.42,-3.34],[38.00,-3.52],
+    [37.62,-3.50],[37.68,-4.02],[37.72,-4.42],[38.42,-4.56],[39.22,-4.66],
+    [39.50,-4.42],[39.66,-4.06],[39.84,-3.42],[40.16,-2.56],[40.02,-2.00],
+    [39.92,-1.50],[39.50,-0.98],[38.50,-0.32],[37.20,-1.10],[36.90,-1.78],
+    [36.20,-1.40],[35.50,-1.18],[34.90,-1.06],[34.46,-1.10],[34.06,-1.04],
+    [33.94,-0.62],[33.90,-0.10],[34.12,0.18],[34.44,0.62],[34.58,1.10],
+    [34.50,1.62],[34.52,1.90],[35.00,1.96],[34.78,2.32],[34.60,2.66],
+    [34.50,3.20],[34.44,3.72],[34.06,4.62]
+  ];
+
+  /* Lake Victoria shoreline (lon,lat) */
+  const lakePts = [
+    [33.90,-0.10],[34.12,0.18],[34.05,-0.30],[34.20,-0.62],[34.13,-1.00],
+    [33.96,-1.04],[33.90,-0.62],[33.90,-0.10]
+  ];
+
+  const LON0=33.55, LON1=42.15, LAT0=5.55, LAT1=-5.25;
+  const PADX=34, PADY=30, W=520, H=580;
+  const px = lon => PADX + (lon-LON0)/(LON1-LON0)*(W-2*PADX);
+  const py = lat => PADY + (LAT0-lat)/(LAT0-LAT1)*(H-2*PADY);
+
+  /* Smooth a ring of points into a closed Catmull-Rom path */
+  function smooth(pts){
+    const P = pts.map(p=>[px(p[0]),py(p[1])]);
+    const n = P.length;
+    let d = `M ${P[0][0].toFixed(1)} ${P[0][1].toFixed(1)} `;
+    for(let i=0;i<n-1;i++){
+      const p0=P[(i-1+n)%n], p1=P[i], p2=P[(i+1)%n], p3=P[(i+2)%n];
+      const c1x=p1[0]+(p2[0]-p0[0])/6, c1y=p1[1]+(p2[1]-p0[1])/6;
+      const c2x=p2[0]-(p3[0]-p1[0])/6, c2y=p2[1]-(p3[1]-p1[1])/6;
+      d += `C ${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)} `;
+    }
+    return d + 'Z';
+  }
+
+  const counties = [
+    {n:"Homa Bay",  prev:18.5,cases:3120,p1:true, lon:34.55,lat:-0.55},
+    {n:"Siaya",     prev:15.2,cases:2580,p1:true, lon:34.25,lat:0.05},
+    {n:"Kisumu",    prev:11.4,cases:2210,p1:true, lon:34.85,lat:-0.10},
+    {n:"Migori",    prev:12.8,cases:1940,p1:true, lon:34.45,lat:-1.05},
+    {n:"Kisii",     prev:8.1, cases:1380,p1:true, lon:34.80,lat:-0.68},
+    {n:"Nyamira",   prev:6.9, cases:940, p1:true, lon:34.99,lat:-0.57},
+    {n:"Vihiga",    prev:6.2, cases:720, p1:true, lon:34.72,lat:0.08},
+    {n:"Kakamega",  prev:5.8, cases:1640,p1:true, lon:34.75,lat:0.45},
+    {n:"Busia",     prev:7.3, cases:850, p1:true, lon:34.13,lat:0.43},
+    {n:"Bungoma",   prev:5.1, cases:1120,p1:true, lon:34.56,lat:0.68},
+    {n:"Trans Nzoia",prev:4.3,cases:780, p1:true, lon:34.98,lat:1.02},
+    {n:"Nandi",     prev:4.1, cases:680, p1:true, lon:35.12,lat:0.18},
+    {n:"Uasin Gishu",prev:4.6,cases:910, p1:true, lon:35.32,lat:0.52},
+    {n:"Kericho",   prev:4.2, cases:690, p1:false,lon:35.32,lat:-0.37},
+    {n:"Bomet",     prev:3.9, cases:560, p1:false,lon:35.36,lat:-0.78},
+    {n:"Narok",     prev:4.8, cases:820, p1:false,lon:35.90,lat:-1.30},
+    {n:"Kajiado",   prev:3.8, cases:690, p1:false,lon:36.82,lat:-2.10},
+    {n:"Nakuru",    prev:4.7, cases:1820,p1:false,lon:36.08,lat:-0.30},
+    {n:"Nyandarua", prev:2.2, cases:290, p1:false,lon:36.50,lat:-0.18},
+    {n:"Laikipia",  prev:2.4, cases:270, p1:false,lon:36.82,lat:0.40},
+    {n:"Baringo",   prev:3.4, cases:490, p1:false,lon:35.99,lat:0.62},
+    {n:"Elgeyo M.", prev:3.1, cases:320, p1:false,lon:35.52,lat:0.50},
+    {n:"West Pokot",prev:2.6, cases:280, p1:false,lon:35.32,lat:1.62},
+    {n:"Turkana",   prev:2.1, cases:380, p1:false,lon:35.62,lat:3.40},
+    {n:"Samburu",   prev:1.8, cases:190, p1:false,lon:37.12,lat:1.30},
+    {n:"Marsabit",  prev:1.2, cases:140, p1:false,lon:37.95,lat:2.55},
+    {n:"Mandera",   prev:0.7, cases:95,  p1:false,lon:40.95,lat:3.55},
+    {n:"Wajir",     prev:0.9, cases:120, p1:false,lon:40.05,lat:1.85},
+    {n:"Garissa",   prev:1.1, cases:200, p1:false,lon:39.62,lat:-0.20},
+    {n:"Isiolo",    prev:1.9, cases:160, p1:false,lon:38.35,lat:0.70},
+    {n:"Meru",      prev:2.3, cases:680, p1:false,lon:37.88,lat:0.10},
+    {n:"Tharaka N.",prev:2.1, cases:210, p1:false,lon:37.94,lat:-0.20},
+    {n:"Embu",      prev:2.6, cases:340, p1:false,lon:37.62,lat:-0.55},
+    {n:"Kirinyaga", prev:2.5, cases:360, p1:false,lon:37.32,lat:-0.55},
+    {n:"Nyeri",     prev:2.7, cases:490, p1:false,lon:36.98,lat:-0.42},
+    {n:"Murang'a",  prev:2.9, cases:580, p1:false,lon:37.05,lat:-0.78},
+    {n:"Kiambu",    prev:3.6, cases:1240,p1:false,lon:36.85,lat:-1.05},
+    {n:"Nairobi",   prev:6.1, cases:5840,p1:true, lon:36.85,lat:-1.28},
+    {n:"Machakos",  prev:3.2, cases:780, p1:false,lon:37.38,lat:-1.45},
+    {n:"Makueni",   prev:2.8, cases:520, p1:false,lon:37.72,lat:-2.20},
+    {n:"Kitui",     prev:2.4, cases:560, p1:false,lon:38.30,lat:-1.40},
+    {n:"Tana River",prev:2.2, cases:240, p1:false,lon:39.80,lat:-1.50},
+    {n:"Lamu",      prev:3.1, cases:180, p1:false,lon:40.75,lat:-2.10},
+    {n:"Kilifi",    prev:5.4, cases:1280,p1:false,lon:39.78,lat:-3.30},
+    {n:"Mombasa",   prev:7.8, cases:2140,p1:true, lon:39.66,lat:-4.04},
+    {n:"Kwale",     prev:4.6, cases:820, p1:false,lon:39.22,lat:-4.18},
+    {n:"Taita T.",  prev:3.9, cases:460, p1:false,lon:38.38,lat:-3.40}
+  ];
+
+  function color(p){
+    if(p>=10) return '#0a2f5c';
+    if(p>=5)  return '#1a6fb5';
+    if(p>=3)  return '#52a8e0';
+    return '#a9d4f2';
+  }
+
+  /* ── DEFS: gradients, shadow, glow ── */
+  const defs = make('defs');
+  defs.innerHTML = `
+    <linearGradient id="landGrad" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#f3f8fd"/>
+      <stop offset="100%" stop-color="#dde9f5"/>
+    </linearGradient>
+    <linearGradient id="lakeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#bfe0f5"/>
+      <stop offset="100%" stop-color="#8ec5e8"/>
+    </linearGradient>
+    <filter id="landShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0d1f35" flood-opacity="0.18"/>
+    </filter>
+    <filter id="bubbleGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  `;
+  svg.appendChild(defs);
+
+  const landPath = smooth(outline);
+
+  /* clip */
+  const clip = make('clipPath',{id:'kenyaClip'});
+  clip.appendChild(make('path',{d:landPath}));
+  defs.appendChild(clip);
+
+  /* ── LAND ── */
+  svg.appendChild(make('path',{d:landPath, fill:'url(#landGrad)', stroke:'#5b8db5','stroke-width':'1.6','stroke-linejoin':'round', filter:'url(#landShadow)'}));
+
+  /* subtle interior county hairline grid for texture (faint) */
+  const tex = make('g',{'clip-path':'url(#kenyaClip)', stroke:'#c3d8ec','stroke-width':'0.5', opacity:'0.5', fill:'none'});
+  for(let lat=-4;lat<=5;lat++){ tex.appendChild(make('line',{x1:px(33),y1:py(lat),x2:px(42),y2:py(lat)})); }
+  for(let lon=34;lon<=42;lon++){ tex.appendChild(make('line',{x1:px(lon),y1:py(5.5),x2:px(lon),y2:py(-5)})); }
+  svg.appendChild(tex);
+
+  /* ── LAKE VICTORIA ── */
+  svg.appendChild(make('path',{d:smooth(lakePts), fill:'url(#lakeGrad)', stroke:'#6fb0d8','stroke-width':'1'}));
+  const ll = make('text',{x:px(33.97),y:py(-0.55),'font-size':'6.5',fill:'#3d7aa8','font-family':"'DM Mono',monospace",'letter-spacing':'0.5',transform:`rotate(-90 ${px(33.97)} ${py(-0.55)})`});
+  ll.textContent='LAKE VICTORIA';
+  svg.appendChild(ll);
+
+  /* ── BUBBLES ── */
+  const group = make('g');  // not clipped so coastal bubbles (Mombasa) show fully
+  svg.appendChild(group);
+  const maxCases = Math.max(...counties.map(c=>c.cases));
+  // sort large-to-small so small bubbles render on top and stay hoverable
+  [...counties].sort((a,b)=>b.cases-a.cases).forEach(c=>{
+    const cx=px(c.lon), cy=py(c.lat);
+    const r = 4.5 + Math.sqrt(c.cases/maxCases)*21;
+    const col = color(c.prev);
+
+    const g = make('g'); g.style.cursor='pointer'; group.appendChild(g);
+
+    // soft glow halo
+    g.appendChild(make('circle',{cx,cy,r:r+3, fill:col, opacity:'0.18'}));
+    // main bubble
+    const circ = make('circle',{cx,cy,r, fill:col,'fill-opacity':'0.9', stroke:'#ffffff','stroke-width':'1.4'});
+    circ.style.transition='fill-opacity .15s, stroke-width .15s';
+    g.appendChild(circ);
+
+    // Phase-1 marker ring
+    if(c.p1){
+      const ring = make('circle',{cx,cy,r:r+3.5, fill:'none', stroke:'#ff5a3c','stroke-width':'1.5','stroke-dasharray':'3,2.5'});
+      ring.style.pointerEvents='none';
+      g.appendChild(ring);
+    }
+
+    g.addEventListener('mousemove',e=>{
+      tip.style.display='block';
+      tip.style.left=(e.clientX+14)+'px';
+      tip.style.top=(e.clientY-10)+'px';
+      tip.innerHTML=`<strong style="color:#52a8e0;font-size:.74rem">${c.n} County</strong><br>`+
+        `HIV prevalence: <b>${c.prev}%</b><br>`+
+        `New cases (2024): <b>${c.cases.toLocaleString()}</b><br>`+
+        (c.p1?`<span style="color:#ff5a3c">\u2605 Phase 1 Lenacapavir rollout</span>`:`Not in Phase 1 rollout`);
+    });
+    g.addEventListener('mouseenter',()=>{circ.setAttribute('fill-opacity','1');circ.setAttribute('stroke-width','2.4');});
+    g.addEventListener('mouseleave',()=>{circ.setAttribute('fill-opacity','0.9');circ.setAttribute('stroke-width','1.4');tip.style.display='none';});
+  });
+
+  /* ── LABELS for key counties (white pill behind text) ── */
+  const labeled=['Homa Bay','Siaya','Kisumu','Migori','Nairobi','Mombasa','Nakuru','Turkana','Garissa'];
+  counties.filter(c=>labeled.includes(c.n)).forEach(c=>{
+    const cx=px(c.lon), cy=py(c.lat);
+    const r = 4.5 + Math.sqrt(c.cases/maxCases)*21;
+    const inside = r > 13;
+    const ty = inside ? cy+2 : cy - r - 4;
+    const t = make('text',{x:cx,y:ty,'text-anchor':'middle','font-size':'7','font-family':"'DM Sans',sans-serif",'font-weight':'600','pointer-events':'none'});
+    t.setAttribute('fill', inside ? '#ffffff' : '#0d1f35');
+    if(!inside){ t.setAttribute('stroke','#f0f5fb'); t.setAttribute('stroke-width','2.4'); t.setAttribute('paint-order','stroke'); }
+    t.textContent=c.n;
+    svg.appendChild(t);
+  });
+
+  /* ── TITLE + COMPASS ── */
+  const title = make('text',{x:W-34,y:42,'text-anchor':'end','font-size':'9','font-family':"'Cormorant Garamond',serif",'font-style':'italic',fill:'#1a5f9e','letter-spacing':'0.5'});
+  title.textContent='Republic of Kenya';
+  svg.appendChild(title);
+  const sub = make('text',{x:W-34,y:54,'text-anchor':'end','font-size':'5.6','font-family':"'DM Mono',monospace",fill:'#9bb4cc','letter-spacing':'0.5'});
+  sub.textContent='BUBBLE SIZE = NEW CASES · COLOR = PREVALENCE';
+  svg.appendChild(sub);
+
+  // compass rose
+  const comp = make('g',{transform:`translate(${W-58},${H-58})`});
+  comp.appendChild(make('circle',{cx:0,cy:0,r:15,fill:'#ffffff',stroke:'#c3d8ec','stroke-width':'1'}));
+  comp.appendChild(make('path',{d:'M0,-12 L3.5,0 L0,3 L-3.5,0 Z',fill:'#1a5f9e'}));
+  comp.appendChild(make('path',{d:'M0,12 L3.5,0 L0,-3 L-3.5,0 Z',fill:'#9bb4cc'}));
+  const nlab=make('text',{x:0,y:-17,'text-anchor':'middle','font-size':'6','font-family':"'DM Mono',monospace",fill:'#1a5f9e','font-weight':'700'});
+  nlab.textContent='N'; comp.appendChild(nlab);
+  svg.appendChild(comp);
+})();
+
+
+</script>
+
+<!-- LENACAPAVIR MOLECULE ANIMATION -->
+<script>
+(function(){
+  const canvas = document.getElementById('molCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize(){
+    const w = canvas.parentElement.clientWidth || 500;
+    canvas.width = w;
+    canvas.height = 320;
+  }
+  resize();
+  window.addEventListener('resize', ()=>{ resize(); });
+
+  const COLORS = { C:'#aaaaaa', N:'#4fc3f7', O:'#f06292', S:'#ef9f27', F:'#e05252', Cl:'#90caf9', H:'#e8e8e8' };
+  const RADII  = { C:7, N:8, O:8, S:10, F:6, Cl:9, H:4 };
+
+  const rawAtoms = [
+    {e:'F', x:-2.2,y:1.9,z:0.3},{e:'F',x:-3.4,y:0.2,z:0.1},{e:'C',x:-2.5,y:0.9,z:0.2},
+    {e:'C',x:-1.6,y:0.1,z:0.2},{e:'C',x:-1.9,y:-1.2,z:0.1},{e:'C',x:-0.9,y:-2.0,z:0.0},
+    {e:'C',x:0.4,y:-1.6,z:0.0},{e:'C',x:0.7,y:-0.3,z:0.1},{e:'C',x:-0.3,y:0.6,z:0.2},
+    {e:'N',x:0.0,y:1.8,z:0.3},{e:'C',x:1.1,y:2.4,z:0.3},{e:'N',x:2.1,y:1.6,z:0.2},
+    {e:'C',x:2.0,y:0.4,z:0.1},{e:'C',x:3.2,y:-0.2,z:0.0},{e:'C',x:4.0,y:0.8,z:0.0},
+    {e:'N',x:3.7,y:2.0,z:0.1},{e:'C',x:2.5,y:2.5,z:0.2},{e:'S',x:5.4,y:0.4,z:-0.1},
+    {e:'O',x:5.7,y:-0.8,z:-0.2},{e:'O',x:6.1,y:1.3,z:0.0},{e:'C',x:5.3,y:1.5,z:-1.2},
+    {e:'N',x:4.3,y:2.3,z:-1.4},{e:'C',x:4.2,y:3.4,z:-2.1},{e:'N',x:5.2,y:4.0,z:-2.7},
+    {e:'C',x:6.2,y:3.3,z:-2.5},{e:'C',x:6.3,y:2.2,z:-1.8},{e:'C',x:7.4,y:1.5,z:-1.5},
+    {e:'N',x:7.6,y:0.3,z:-0.8},{e:'C',x:8.8,y:-0.2,z:-0.5},{e:'C',x:9.5,y:0.7,z:0.4},
+    {e:'C',x:9.1,y:2.1,z:0.3},{e:'C',x:7.9,y:2.4,z:0.8},{e:'N',x:7.2,y:3.4,z:0.1},
+    {e:'C',x:7.3,y:4.5,z:-0.6},{e:'F',x:8.5,y:4.8,z:-0.8},{e:'F',x:6.8,y:5.5,z:0.0},
+    {e:'F',x:6.7,y:4.4,z:-1.8},{e:'Cl',x:3.1,y:4.3,z:-2.3},{e:'C',x:10.7,y:0.3,z:0.8},
+    {e:'O',x:11.2,y:-0.7,z:0.5},{e:'N',x:11.4,y:1.2,z:1.5},{e:'C',x:12.7,y:0.9,z:2.0},
+    {e:'C',x:13.2,y:2.1,z:2.7},{e:'C',x:14.0,y:1.2,z:3.2},{e:'C',x:14.1,y:0.1,z:2.3},
+    {e:'H',x:1.1,y:3.5,z:0.4},{e:'H',x:-0.7,y:-3.0,z:-0.1},{e:'H',x:-2.9,y:-1.5,z:0.1}
+  ];
+
+  const bonds = [
+    [0,2],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,3],
+    [8,9],[9,10],[10,11],[11,12],[12,7],[12,13],[13,14],[14,15],[15,16],[16,11],
+    [14,17],[17,18],[17,19],[17,20],[20,21],[21,22],[22,23],[23,24],[24,25],[25,20],
+    [25,26],[26,27],[27,28],[28,29],[29,30],[30,31],[31,27],
+    [31,32],[32,33],[33,34],[33,35],[33,36],
+    [22,37],[29,38],[38,39],[38,40],[40,41],[41,42],[42,43],[43,44],[44,41],
+    [10,45],[5,46],[4,47]
+  ];
+
+  let cx=0,cy=0,cz=0;
+  rawAtoms.forEach(a=>{cx+=a.x;cy+=a.y;cz+=a.z;});
+  cx/=rawAtoms.length; cy/=rawAtoms.length; cz/=rawAtoms.length;
+  const atoms = rawAtoms.map(a=>({...a,x:a.x-cx,y:a.y-cy,z:a.z-cz}));
+
+  let angle=0, tiltAngle=0.3, spinning=true, viewMode=0;
+
+  function rotateXY(atom, ang, tilt){
+    const cos=Math.cos(ang),sin=Math.sin(ang),cosT=Math.cos(tilt),sinT=Math.sin(tilt);
+    let x=atom.x*cos-atom.z*sin, z=atom.x*sin+atom.z*cos;
+    let y=atom.y*cosT-z*sinT; z=atom.y*sinT+z*cosT;
+    return {x,y,z,e:atom.e};
+  }
+
+  function draw(){
+    const W=canvas.width, H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+    const scale = Math.min(W,H)/13;
+    const rotated = atoms.map(a=>rotateXY(a,angle,tiltAngle));
+    const proj = rotated.map(a=>({sx:W/2+a.x*scale, sy:H/2-a.y*scale, depth:a.z, e:a.e}));
+
+    bonds.forEach(([i,j])=>{
+      if(i>=atoms.length||j>=atoms.length) return;
+      const a=proj[i],b=proj[j];
+      const alpha=0.25+0.45*((((a.depth+b.depth)/2)+8)/16);
+      ctx.beginPath(); ctx.moveTo(a.sx,a.sy); ctx.lineTo(b.sx,b.sy);
+      ctx.strokeStyle=`rgba(120,160,200,${Math.max(0.08,Math.min(0.6,alpha))})`;
+      ctx.lineWidth=1.5; ctx.stroke();
+    });
+
+    proj.map((p,i)=>({...p,i})).sort((a,b)=>a.depth-b.depth).forEach(({sx,sy,depth,e})=>{
+      const r=(RADII[e]||7)*(Math.min(canvas.width,canvas.height)/260);
+      const color=COLORS[e]||'#888';
+      const grd=ctx.createRadialGradient(sx-r*.3,sy-r*.3,r*.1,sx,sy,r*1.1);
+      grd.addColorStop(0,color+'ee'); grd.addColorStop(0.6,color+'cc'); grd.addColorStop(1,color+'33');
+      const alpha=0.6+0.4*((depth+8)/16);
+      ctx.beginPath(); ctx.arc(sx,sy,Math.max(2,r),0,Math.PI*2);
+      ctx.fillStyle=grd; ctx.globalAlpha=Math.max(0.5,Math.min(1,alpha)); ctx.fill();
+      ctx.globalAlpha=1;
+      ctx.beginPath(); ctx.arc(sx-r*.25,sy-r*.25,Math.max(1,r*.3),0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.fill();
+    });
+  }
+
+  function loop(){
+    if(spinning){
+      angle+=0.012;
+      tiltAngle=0.3+Math.sin(angle*0.4)*0.15;
+    }
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  document.getElementById('molPause').addEventListener('click',function(){
+    spinning=!spinning;
+    this.textContent=spinning?'⏸ Pause':'▶ Play';
+  });
+
+  document.getElementById('molView').addEventListener('click',function(){
+    viewMode=(viewMode+1)%3;
+    const labels=['Top view','Side view','Rotate'];
+    this.textContent=labels[viewMode];
+    if(viewMode===0){angle=0;tiltAngle=Math.PI/2;spinning=false;document.getElementById('molPause').textContent='▶ Play';}
+    else if(viewMode===1){angle=Math.PI/2;tiltAngle=0;spinning=false;document.getElementById('molPause').textContent='▶ Play';}
+    else{spinning=true;document.getElementById('molPause').textContent='⏸ Pause';}
+  });
+
+  loop();
+})();
+</script>
+</body>
+</html>
